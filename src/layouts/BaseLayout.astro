@@ -9,25 +9,25 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+//TODO: font: https://fonts.google.com/specimen/Montserrat
 ---
-
 <html class={'h-full'}>
     <head>
         <meta charset="UTF-8">
-        <!--<SEO-->
-        <!--        title={title}-->
-        <!--        description={description}-->
-        <!--        openGraph={{-->
-        <!--            basic: {-->
-        <!--                title: title,-->
-        <!--                type: 'website',-->
-        <!--                image: 'dsf' //TODO: add image link-->
-        <!--            }-->
-        <!--        }}-->
+        <SEO
+                title={title}
+                description={description}
+                openGraph={{
+                    basic: {
+                        title: title,
+                        type: 'website',
+                        image: 'dsf' //TODO: add image link
+                    }
+                }}
 
-        <!--/>-->
+        />
     </head>
-    <body class="bg-corporate-light h-full flex flex-col">
+    <body class="bg-corporate-light h-full flex flex-col text-corporate-main">
         <header>
             <Header />
         </header>
