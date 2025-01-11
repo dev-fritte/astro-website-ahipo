@@ -1,0 +1,39 @@
+---
+import {SEO} from 'astro-seo';
+import {Header} from '@components/Header';
+import {Footer} from '@components/Footer';
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html class={'h-full'}>
+    <head>
+        <meta charset="UTF-8">
+        <!--<SEO-->
+        <!--        title={title}-->
+        <!--        description={description}-->
+        <!--        openGraph={{-->
+        <!--            basic: {-->
+        <!--                title: title,-->
+        <!--                type: 'website',-->
+        <!--                image: 'dsf' //TODO: add image link-->
+        <!--            }-->
+        <!--        }}-->
+
+        <!--/>-->
+    </head>
+    <body class="bg-corporate-light h-full flex flex-col">
+        <header>
+            <Header />
+        </header>
+        <main class={'flex-1'}>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
