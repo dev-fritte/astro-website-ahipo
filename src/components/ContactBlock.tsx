@@ -5,7 +5,7 @@ export const ContactBlock: React.FC = () => {
     return (
         <div className={'w-full flex bg-corporate-main'}>
             <ContentBlock>
-                <div className="w-full flex flex-col gap-10 text-corporate-light py-4">
+                <div className="w-full flex flex-col gap-10 text-corporate-light">
                     <div className={'self-center'}>
                         <h3 className={'text-4xl'}>{'Kontakt'}</h3>
                     </div>
