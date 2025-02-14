@@ -11,7 +11,7 @@ export default defineConfig({
     integrations: [react(), tailwind(), icon()],
     site: 'https://ahipo.de',
     i18n: {
-        defaultLocale: 'en',
+        defaultLocale: 'de',
         locales: ['en', 'de'],
         routing: {
             prefixDefaultLocale: true,

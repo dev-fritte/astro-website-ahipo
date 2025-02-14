@@ -3,8 +3,6 @@ export const languages = {
     de: 'Deutsch',
 };
 
-export const defaultLang = 'de';
-
 export const ui = {
     en: {
         'nav.home': 'Home',
