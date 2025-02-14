@@ -9,7 +9,14 @@ import svgr from 'vite-plugin-svgr'
 export default defineConfig({
     integrations: [react(), tailwind()],
     site: 'https://ahipo.de',
-    trailingSlash: 'never',
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en', 'de'],
+        routing: {
+            prefixDefaultLocale: true,
+            redirectToDefaultLocale: false,
+        },
+    },
     vite: {
         plugins: [
             svgr({

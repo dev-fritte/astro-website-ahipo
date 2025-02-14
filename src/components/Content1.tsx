@@ -1,5 +1,5 @@
 import React from 'react'
-import {ContentBlock} from '@components/ContentBlock.tsx'
+import {ContentBlock} from '@/components/ContentBlock.tsx'
 
 export const Content1: React.FC = () => {
     return (

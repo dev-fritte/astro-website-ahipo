@@ -1,0 +1,8 @@
+---
+import {getLanguagePath} from '../utils/language';
+import Button from './Button.astro'
+---
+
+<a href={getLanguagePath(Astro.currentLocale)}>
+    <Button variant={'primary'} text={'DE/EN'}/>
+</a>

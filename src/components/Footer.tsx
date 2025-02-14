@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from 'src/images/ahipo_logo.svg?react';
-import {ContentBlock} from '@components/ContentBlock.tsx'
+import {ContentBlock} from '@/components/ContentBlock.tsx'
 
 
 export const Footer: React.FC = () => {

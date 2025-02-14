@@ -1,0 +1,20 @@
+---
+interface Props {
+    text: string,
+    variant: 'primary' | 'secondary',
+}
+
+const {text, variant = 'primary'} = Astro.props;
+
+const baseStyling = 'w-24 h-8 rounded-lg';
+
+const hoverStyling = 'hover:shadow hover:shadow-corporate-main';
+
+const buttonStyling = variant === 'primary' ?
+    'bg-corporate-main text-corporate-light' :
+    'border border-corporate-main'
+---
+
+<button class={`${baseStyling} ${buttonStyling} ${hoverStyling}`}>
+    {text}
+</button>

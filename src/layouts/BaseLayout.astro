@@ -1,39 +1,47 @@
 ---
 import {SEO} from 'astro-seo';
-import {Header} from '@components/Header';
-import {Footer} from '@components/Footer';
+import Header from '@/components/Header.astro'
+import {Footer} from '@/components/Footer.tsx'
 
 interface Props {
     title: string;
     description: string;
 }
 
-const { title, description } = Astro.props;
+const {title, description} = Astro.props;
 //TODO: font: https://fonts.google.com/specimen/Montserrat
+
+import {SITE_TITLE, SITE_DESCRIPTION} from '@/consts';
+import {useTranslations, LOCALES, getLocalePaths, type Lang} from '@/i18n';
+const t = useTranslations(Astro.currentLocale as Lang);
+
+const localeTitle = title ? `${title} - ${t(SITE_TITLE)}` : t(SITE_TITLE);
+const localeDescription = description || t(SITE_DESCRIPTION);
 ---
 <html class={'h-full'}>
-    <head>
-        <meta charset="UTF-8">
-        <SEO
-                title={title}
-                description={description}
-                openGraph={{
-                    basic: {
-                        title: title,
-                        type: 'website',
-                        image: 'dsf' //TODO: add image link
-                    }
-                }}
+<head>
+    <meta charset="UTF-8">
+    <SEO
+            title={t(localeTitle)}
+            description={t(localeDescription)}
+            openGraph={{
+                basic: {
+                    title: title,
+                    type: 'website',
+                    image: 'dsf' //TODO: add image link
 
-        />
-    </head>
-    <body class="bg-corporate-light h-full flex flex-col text-corporate-main">
-        <header>
-            <Header />
-        </header>
-        <main class={'flex-1'}>
-            <slot />
-        </main>
-        <Footer />
-    </body>
+                }
+            }}
+
+    />
+</head>
+<body class="bg-corporate-light h-full flex flex-col text-corporate-main">
+<header>
+    <Header/>
+</header>
+<main class={'flex-1'}>
+    <slot />
+</main>
+    <Footer />
+</body>
 </html>

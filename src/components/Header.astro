@@ -1,0 +1,25 @@
+---
+import {type Lang, useTranslations} from '../i18n'
+import React from 'react'
+import Logo from 'src/images/ahipo_logo.svg?react';
+import {ContentBlock} from '@/components/ContentBlock.tsx'
+import LanguageSwitch from './LanguageSwitch.astro'
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
+---
+
+<nav class={'w-full h-40 flex'}>
+    <ContentBlock>
+        <div class="w-full px-3 flex justify-between items-center">
+            <div class={'w-80'}>
+                <Logo/>
+            </div>
+
+            <div class={'flex gap-4'}>
+                <LanguageSwitch/>
+                <button>{t({de: 'Kontakt', en: 'Contact'})}</button>
+            </div>
+        </div>
+    </ContentBlock>
+</nav>
