@@ -1,19 +1,23 @@
 ---
 import {ContactBlock} from '@/components/ContactBlock'
+import {type Lang, useTranslations} from '../../i18n'
 import {Hero} from '@/components/Hero'
 import {Features} from '@/components/Features'
 import {Content1} from '@/components/Content1'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 const helmet = {
-    title: 'Home',
-    description: 'Das ist die Main Page',
+    title: 'Melanie Ahipo',
+    description: 'Lawyer and legal counselor',
 }
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
 ---
 
-<BaseLayout title="Melanie Ahipo" description="Rechtsanwältin & rechtliche Betreuerin">
+<BaseLayout title={hemlet.title} description={helmet.description}>
     <Hero/>
-    <Features />
-    <Content1 />
+    <Features/>
+    <Content1/>
     <ContactBlock/>
 </BaseLayout>
