@@ -1,0 +1,38 @@
+---
+import React from 'react';
+import {Icon} from 'astro-icon/components';
+import {ContentBlock} from '@/components/ContentBlock.tsx';
+import {type Lang,useTranslations} from '../i18n';
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
+---
+
+<footer class={'py-4 w-full bottom-0'}>
+    <ContentBlock>
+        <div class={'flex-1 flex flex-col gap-10'}>
+            <div class={'w-56'}>
+            <Icon name={'ahipo_logo'} width={'200px'} height={'50px'}/>
+            </div>
+
+            <div class="flex-1 flex justify-between">
+                <div>
+                    <p>{t({de: 'Rechtsanwälting und rechtliche Betreuerin', en: 'Lawyer and legal counselor'})}</p>
+                    <p>{'Melanie Ahipo'}</p>
+                    <p>{'Engelbergerstraße 19'}</p>
+                    <p>{'79106 Freiburg'}</p>
+                </div>
+
+                <div>
+                    <p>{t({de: 'Folgen Sie mir auf Social Media', en: 'Follow me on my socials'})}</p>
+                </div>
+            </div>
+
+            <div class={'flex gap-4 text-sm'}>
+                <a href={'/imprint'}>{t({de: 'Impressum', en: 'Imprint'})}</a>
+                <div class={'inline-block w-0.5 self-stretch bg-corporate-main'}></div>
+                <a href={'/privacy'}>{t({de: 'Datenschutzerklärung', en: 'Privacy'})}</a>
+            </div>
+        </div>
+    </ContentBlock>
+</footer>
