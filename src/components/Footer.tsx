@@ -1,6 +1,5 @@
-import React from 'react'
-import Logo from 'src/images/ahipo_logo.svg?react';
-import {ContentBlock} from '@/components/ContentBlock.tsx'
+import React from 'react';
+import {ContentBlock} from '@/components/ContentBlock.tsx';
 
 
 export const Footer: React.FC = () => {
@@ -9,7 +8,6 @@ export const Footer: React.FC = () => {
             <ContentBlock>
                 <div className={'flex-1 flex flex-col gap-10'}>
                     <div className={'w-56'}>
-                        <Logo/>
                     </div>
 
                     <div className="flex-1 flex justify-between">
