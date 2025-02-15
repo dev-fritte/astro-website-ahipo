@@ -1,0 +1,39 @@
+---
+import React from 'react'
+import {type Lang, useTranslations} from '@/i18n'
+import {ContentBlock} from '@/components/ContentBlock.tsx'
+import {Icon} from 'astro-icon/components'
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
+---
+
+<div class={'w-full flex bg-corporate-main'}>
+    <ContentBlock>
+        <div class="w-full flex flex-col gap-10 text-corporate-light">
+            <div class={'self-center'}>
+                <h3 class={'text-4xl'}>{'Kontakt'}</h3>
+            </div>
+
+            <div class={'flex gap-2 justify-around flex-wrap'}>
+                <div class={'flex flex-col items-center gap-2'}>
+                    <a href={'tel:+4976115534480'}>
+                        <Icon name={'mdi:telephone'} size={50}/>
+                    </a>
+                    <p>{t({de: 'Anruf', en: 'Phone'})}</p>
+                </div>
+                <div class={'flex flex-col items-center gap-2'}>
+                    <a href={'mailto:info@ahipo.de'}>
+                        <Icon name={'mdi:email-outline'} size={50}/>
+                        <p>{'E-Mail'}</p>
+                    </a>
+                </div>
+                <div class={'flex flex-col items-center gap-2'}>
+                    <!--https://api.whatsapp.com/send?phone=-->
+                    <Icon name={'mdi:whatsapp'} size={50}/>
+                    <p>{'WhatsApp'}</p>
+                </div>
+            </div>
+        </div>
+    </ContentBlock>
+</div>
