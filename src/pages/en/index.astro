@@ -6,16 +6,11 @@ import {Features} from '@/components/Features'
 import {Content1} from '@/components/Content1'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
-const helmet = {
-    title: 'Melanie Ahipo',
-    description: 'Lawyer and legal counselor',
-}
-
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
 ---
 
-<BaseLayout title={hemlet.title} description={helmet.description}>
+<BaseLayout title={'Melanie Ahipo'} description={'Lawyer and legal counselor'}>
     <Hero/>
     <Features/>
     <Content1/>
