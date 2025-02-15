@@ -1,9 +1,9 @@
 ---
-import {ContactBlock} from '../../components/ContactBlock'
-import {Hero} from '../../components/Hero'
-import {Features} from '../../components/Features'
-import {Content1} from '../../components/Content1'
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import {ContactBlock} from '@/components/ContactBlock'
+import {Content1} from '@/components/Content1'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Hero from '@/components/Hero.astro'
+import Features from '@/components/Features.astro'
 
 const helmet = {
     title: 'Home',
@@ -11,11 +11,8 @@ const helmet = {
 }
 ---
 <BaseLayout title="Melanie Ahipo" description="Rechtsanwältin & rechtliche Betreuerin">
-   <p>
-       bla
-   </p>
-    <!--<Hero/>-->
-    <!--<Features />-->
-    <!--<Content1 />-->
-    <!--<ContactBlock/>-->
+    <Hero/>
+    <Features/>
+    <Content1/>
+    <ContactBlock/>
 </BaseLayout>
