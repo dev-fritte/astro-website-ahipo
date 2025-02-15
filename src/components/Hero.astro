@@ -1,0 +1,30 @@
+---
+import React from 'react';
+import {type Lang, useTranslations} from '@/i18n';
+import {ContentBlock} from '@/components/ContentBlock.tsx';
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
+---
+
+<div class={'w-full flex bg-corporate-main'}>
+    <ContentBlock>
+        <div class="mt-20 text-corporate-light w-full flex justify-center gap-20">
+
+            <div class={'flex-1 justify-end'}>
+                <img src={'.'} alt={'Melanie Ahipo'}/>
+            </div>
+
+            <div class={'flex-1 flex flex-col gap-4 pb-10'}>
+                <div class={'uppercase'}>
+                    <h1 class={'text-8xl'}>{'Melanie'}</h1>
+                    <h1 class={'text-8xl'}>{'Ahipo'}</h1>
+                </div>
+                <p class={'text-2xl'}>{t({
+                    de: 'Rechtsanwältin und rechtliche Betreuerin',
+                    en: 'Lawyer and legal counselor'
+                })}</p>
+            </div>
+        </div>
+    </ContentBlock>
+</div>
