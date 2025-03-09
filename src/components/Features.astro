@@ -3,7 +3,7 @@ import React from 'react'
 import {ContentBlock} from '@/components/ContentBlock.tsx'
 import {Icon} from 'astro-icon/components';
 import Button from './Button.astro';
-import  {type Lang,useTranslations} from '@/i18n';
+import {type Lang, useTranslations} from '@/i18n';
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
@@ -13,8 +13,11 @@ const t = useTranslations(locale)
 <ContentBlock>
     <div class="mt-10 w-full flex flex-col gap-10">
 
-        <div class={'self-center text-center'}>
-            <h2 class={'text-4xl'}>{'Ich vertrete Sie in den folgenden Gebieten'}</h2>
+        <div class={'self-center text-center mb-4'}>
+            <h2 class={'text-4xl'}>{t({
+                de: 'Ich vertrete Sie in den folgenden Gebieten',
+                en: 'I represent you in the following areas'
+            })}</h2>
         </div>
 
         <div class={'flex-1 flex justify-around gap-10 flex-wrap'}>
@@ -22,13 +25,10 @@ const t = useTranslations(locale)
             <div class={'flex-1 flex justify-center'}>
                 <div class={'max-w-[500px] min-w-[250px] flex flex-col gap-4 items-center text-center'}>
                     <Icon name={'mdi:legal'} size={50}/>
-                    <h3 class={'text-3xl'}>{'Strafrecht'}</h3>
-                    <p>{'Als erfahrene Rechtsanwältin für Strafrecht stehe ich Ihnen mit\n' +
-                        'Fachwissen und Engagement zur Seite, um Ihre rechtlichen\n' +
-                        'Belange effektiv zu vertreten. Ob Sie mit strafrechtlichen\n' +
-                        'Anschuldigungen konfrontiert sind oder rechtliche\n' +
-                        'Unterstützung benötigen, um Ihre Rechte zu schützen - ich bin\n' +
-                        'hier, um Ihnen zu helfen.'}
+                    <h3 class={'text-3xl'}>{t({de: 'Strafrecht', en: 'Criminal law'})}</h3>
+                    <p>{t({
+                        de: 'Als erfahrene Rechtsanwältin für Strafrecht stehe ich Ihnen mit Fachwissen und Engagement zur Seite, um Ihre rechtlichen Belange effektiv zu vertreten. Ob Sie mit strafrechtlichen Anschuldigungen konfrontiert sind oder rechtliche Unterstützung benötigen, um Ihre Rechte zu schützen - ich bin hier, um Ihnen zu helfen.'
+                    })}
                     </p>
                     <Button text={t({de: 'Kontakt', en: 'Contact'})}>
                 </div>
