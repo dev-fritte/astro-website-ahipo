@@ -1,5 +1,6 @@
-import { DEFAULT_LOCALE_SETTING, LOCALES_SETTING } from "./locales";
-import { getRelativeLocaleUrl } from "astro:i18n";
+import {DEFAULT_LOCALE_SETTING, LOCALES_SETTING} from './locales';
+import {getRelativeLocaleUrl} from 'astro:i18n';
+import translations from '@/i18n/translations.ts';
 
 
 /**
@@ -43,10 +44,10 @@ export type Multilingual = { [key in Lang]?: string };
  */
 export function useTranslations(lang: Lang) {
     return function t(multilingual: Multilingual | string): string {
-        if (typeof multilingual === "string") {
-            return multilingual;
+        if (typeof multilingual === 'string') {
+            return translations[lang][multilingual] ?? multilingual;
         } else {
-            return (multilingual[lang] ?? multilingual[DEFAULT_LOCALE]) ?? "";
+            return (multilingual[lang] ?? multilingual[DEFAULT_LOCALE]) ?? '';
         }
     };
 }
@@ -65,6 +66,7 @@ export function getLocalePaths(url: URL): LocalePath[] {
         };
     });
 }
+
 type LocalePath = {
     lang: Lang;
     path: string;
@@ -77,5 +79,5 @@ type LocalePath = {
  * @see https://docs.astro.build/en/guides/routing/#dynamic-routes
  */
 export const localeParams = Object.keys(LOCALES).map((lang) => ({
-    params: { lang },
+    params: {lang},
 }));
