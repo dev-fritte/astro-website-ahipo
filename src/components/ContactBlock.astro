@@ -8,11 +8,11 @@ const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
 ---
 
-<div class={'w-full flex bg-corporate-main'}>
+<div class={'w-full flex bg-corporate-main my-4 py-4'}>
     <ContentBlock>
         <div class="w-full flex flex-col gap-10 text-corporate-light">
             <div class={'self-center'}>
-                <h3 class={'text-4xl'}>{t({de: 'Kontakt', en: 'Contact'})}</h3>
+                <h3 class={'text-4xl'}>{t('general.contact')}</h3>
             </div>
 
             <div class={'flex gap-2 justify-around flex-wrap mb-4'}>
