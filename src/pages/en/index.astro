@@ -1,12 +1,17 @@
 ---
-import {Content1} from '@/components/Content1'
+import Content1 from '@/components/Content1.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Features from '@/components/Features.astro'
 import Hero from '@/components/Hero.astro'
 import ContactBlock from '@/components/ContactBlock.astro';
+import  {type Lang,useTranslations} from '../../i18n'
+
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
 ---
 
-<BaseLayout title={'Melanie Ahipo'} description={'Lawyer and legal counselor'}>
+<BaseLayout title={'Melanie Ahipo'} description={t('hero.title')}>
     <Hero/>
     <Features/>
     <Content1/>

@@ -45,7 +45,7 @@ export type Multilingual = { [key in Lang]?: string };
 export function useTranslations(lang: Lang) {
     return function t(multilingual: Multilingual | string): string {
         if (typeof multilingual === 'string') {
-            return translations[lang][multilingual] ?? multilingual;
+            return translations[lang][multilingual] ?? translations[DEFAULT_LOCALE][multilingual] ?? multilingual;
         } else {
             return (multilingual[lang] ?? multilingual[DEFAULT_LOCALE]) ?? '';
         }

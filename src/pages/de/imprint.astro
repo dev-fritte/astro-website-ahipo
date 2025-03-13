@@ -1,7 +1,13 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import  {type Lang,useTranslations} from '../../i18n';
+
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
 ---
 
-<BaseLayout title={'Impressum'} description={'Rechtsanwältin & rechtliche Betreuerin'}>
+<BaseLayout title={t('general.imprint')} description={t('hero.title')}>
     <p></p>
 </BaseLayout>

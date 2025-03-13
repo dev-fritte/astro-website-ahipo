@@ -1,0 +1,34 @@
+---
+import React from 'react';
+import {ContentBlock} from '@/components/ContentBlock.tsx';
+import {type Lang, useTranslations} from '@/i18n';
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale)
+---
+
+<ContentBlock>
+    <div class="mt-10 w-full flex flex-col gap-10">
+
+        <div>
+            <h2 class={'text-4xl'}>{t('content1.title')}</h2>
+            <h2 class={'text-4xl'}>{t('content1.subheader')}</h2>
+        </div>
+
+        <div class={'flex-1 flex justify-around gap-10 flex-wrap'}>
+
+            <div class={'flex-1 flex flex-col gap-4 min-w-[250px]'}>
+                <p class={'max-w-[500px]'}>{t('content1.text1')}</p>
+                <p class={'max-w-[500px]'}>{t('content1.text2')}</p>
+
+                <p class={'max-w-[500px]'}>{t('content1.text3')}</p>
+            </div>
+
+            <div class={'flex-1'}>
+                <img src={'.'} alt={'Laptop'}/>
+            </div>
+
+        </div>
+
+    </div>
+</ContentBlock>

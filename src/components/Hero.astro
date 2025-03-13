@@ -2,13 +2,15 @@
 import React from 'react';
 import {type Lang, useTranslations} from '@/i18n';
 import {ContentBlock} from '@/components/ContentBlock.tsx';
+import { Image } from 'astro:assets';
+import heroImage from '@/images/melanie-ahip.png';
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
 ---
 
 <div class={'w-full flex bg-corporate-main'}>
-    <ContentBlock>
+    <ContentBlock disableVerticalPadding={true}>
         <div class="mt-20 text-corporate-light w-full flex justify-center gap-20">
 
             <div class={'flex-1 justify-end'}>
@@ -17,13 +19,10 @@ const t = useTranslations(locale)
 
             <div class={'flex-1 flex flex-col gap-4 pb-10'}>
                 <div class={'uppercase'}>
-                    <h1 class={'text-8xl'}>{'Melanie'}</h1>
-                    <h1 class={'text-8xl'}>{'Ahipo'}</h1>
+                    <h1 class={'text-8xl'}>{t('personal.name')?.split(' ')?.[0]}</h1>
+                    <h1 class={'text-8xl'}>{t('personal.name')?.split(' ')?.[1]}</h1>
                 </div>
-                <p class={'text-2xl'}>{t({
-                    de: 'Rechtsanwältin und rechtliche Betreuerin',
-                    en: 'Lawyer and legal counselor'
-                })}</p>
+                <p class={'text-2xl'}>{t('hero.title')}</p>
             </div>
         </div>
     </ContentBlock>

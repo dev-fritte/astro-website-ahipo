@@ -2,7 +2,7 @@
 import React from 'react';
 import {Icon} from 'astro-icon/components';
 import {ContentBlock} from '@/components/ContentBlock.tsx';
-import {type Lang,useTranslations} from '../i18n';
+import {type Lang, useTranslations} from '../i18n';
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
@@ -12,26 +12,26 @@ const t = useTranslations(locale)
     <ContentBlock>
         <div class={'flex-1 flex flex-col gap-10'}>
             <div class={'w-56'}>
-            <Icon name={'ahipo_logo'} width={'200px'} height={'50px'}/>
+                <Icon name={'ahipo_logo'} width={'200px'} height={'50px'}/>
             </div>
 
             <div class="flex-1 flex justify-between">
                 <div>
-                    <p>{t({de: 'Rechtsanwälting und rechtliche Betreuerin', en: 'Lawyer and legal counselor'})}</p>
-                    <p>{'Melanie Ahipo'}</p>
-                    <p>{'Engelbergerstraße 19'}</p>
-                    <p>{'79106 Freiburg'}</p>
+                    <p>{t('hero.title')}</p>
+                    <p>{t('personal.name')}</p>
+                    <p>{t('personal.address.street')}</p>
+                    <p>{t('personal.address.city')}</p>
                 </div>
 
                 <div>
-                    <p>{t({de: 'Folgen Sie mir auf Social Media', en: 'Follow me on my socials'})}</p>
+                    <p>{t('footer.socials.title')}</p>
                 </div>
             </div>
 
             <div class={'flex gap-4 text-sm'}>
-                <a href={'/imprint'}>{t({de: 'Impressum', en: 'Imprint'})}</a>
+                <a href={`/${locale}/imprint`}>{t('general.imprint')}</a>
                 <div class={'inline-block w-0.5 self-stretch bg-corporate-main'}></div>
-                <a href={'/privacy'}>{t({de: 'Datenschutzerklärung', en: 'Privacy'})}</a>
+                <a href={`/${locale}/privacy`}>{t('general.privacy')}</a>
             </div>
         </div>
     </ContentBlock>
