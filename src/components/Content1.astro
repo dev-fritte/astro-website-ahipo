@@ -8,27 +8,18 @@ const t = useTranslations(locale)
 ---
 
 <ContentBlock>
-    <div class="mt-10 w-full flex flex-col gap-10">
+    <div class="mt-10 w-full grid grid-cols-5 gap-10">
 
-        <div>
+        <div class={'col-start-2 col-span-2'}>
             <h2 class={'text-4xl'}>{t('content1.title')}</h2>
             <h2 class={'text-4xl'}>{t('content1.subheader')}</h2>
         </div>
 
-        <div class={'flex-1 flex justify-around gap-10 flex-wrap'}>
+        <div class={'col-start-2 col-span-2 flex flex-col gap-4 min-w-[250px]'}>
+            <p>{t('content1.text1')}</p>
+            <p>{t('content1.text2')}</p>
 
-            <div class={'flex-1 flex flex-col gap-4 min-w-[250px]'}>
-                <p class={'max-w-[500px]'}>{t('content1.text1')}</p>
-                <p class={'max-w-[500px]'}>{t('content1.text2')}</p>
-
-                <p class={'max-w-[500px]'}>{t('content1.text3')}</p>
-            </div>
-
-            <div class={'flex-1'}>
-                <img src={'.'} alt={'Laptop'}/>
-            </div>
-
+            <p>{t('content1.text3')}</p>
         </div>
-
     </div>
 </ContentBlock>

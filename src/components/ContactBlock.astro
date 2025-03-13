@@ -10,13 +10,13 @@ const t = useTranslations(locale)
 
 <div class={'w-full flex bg-corporate-main my-4 py-4'}>
     <ContentBlock>
-        <div class="w-full flex flex-col gap-10 text-corporate-light">
-            <div class={'self-center'}>
+        <div class="w-full grid grid-rows-2 grid-cols-5 gap-10 text-corporate-light">
+            <div class={'col-start-3 flex justify-center'}>
                 <h3 class={'text-4xl'}>{t('general.contact')}</h3>
             </div>
 
-            <div class={'flex gap-2 justify-around flex-wrap mb-4'}>
-                <div class={'flex flex-col items-center gap-4'}>
+            <div class={'row-start-2 grid col-span-5 md:grid-flow-row md:grid-cols-5 gap-2 justify-around flex-wrap mb-4'}>
+                <div class={'col-start-2 flex flex-col items-center gap-4'}>
                     <a href={'tel:+4976115534480'}>
                         <Icon name={'mdi:telephone'} size={50}/>
                     </a>

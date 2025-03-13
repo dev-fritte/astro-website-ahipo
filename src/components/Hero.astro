@@ -3,7 +3,7 @@ import React from 'react';
 import {type Lang, useTranslations} from '@/i18n';
 import {ContentBlock} from '@/components/ContentBlock.tsx';
 import { Image } from 'astro:assets';
-import heroImage from '@/images/melanie-ahip.png';
+import heroImage from '@/images/melanie_ahipo.png';
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
@@ -11,16 +11,15 @@ const t = useTranslations(locale)
 
 <div class={'w-full flex bg-corporate-main'}>
     <ContentBlock disableVerticalPadding={true}>
-        <div class="mt-20 text-corporate-light w-full flex justify-center gap-20">
+        <div class="mt-20 text-corporate-light w-full grid grid-cols-5 gap-20">
 
-            <div class={'flex-1 justify-end'}>
-                <Image src={heroImage} alt={t('personal.name')} height={700}/>
+            <div class={'col-start-2 justify-end'}>
+                <Image src={heroImage} alt={t('personal.name')} height={500}/>
             </div>
 
-            <div class={'flex-1 flex flex-col gap-4 pb-10'}>
+            <div class={'col-start-3 col-span-2 flex flex-col gap-4 pb-10'}>
                 <div class={'uppercase'}>
-                    <h1 class={'text-8xl'}>{t('personal.name')?.split(' ')?.[0]}</h1>
-                    <h1 class={'text-8xl'}>{t('personal.name')?.split(' ')?.[1]}</h1>
+                    <h1 class={'text-8xl'}>{t('personal.name')}</h1>
                 </div>
                 <p class={'text-2xl'}>{t('hero.title')}</p>
             </div>
