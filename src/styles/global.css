@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer theme {
     @font-face {
         font-family: Montserrat;
         font-style: normal;
@@ -14,4 +14,19 @@
 
 html {
     font-family: Montserrat;
+}
+
+ol, ul {
+    list-style: disc;
+    padding-inline-start: 40px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+ol {
+    list-style: decimal;
+}
+
+a {
+    text-decoration: underline;
 }
