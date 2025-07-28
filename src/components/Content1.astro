@@ -8,14 +8,14 @@ const t = useTranslations(locale)
 ---
 
 <ContentBlock>
-    <div class="mt-10 w-full grid grid-cols-5 gap-10">
+    <div class="flex flex-col gap-6 mt-10 w-full md:grid md:grid-cols-5 md:gap-10">
 
         <div class={'col-start-2 col-span-2'}>
-            <h2 class={'text-4xl'}>{t('content1.title')}</h2>
-            <h2 class={'text-4xl'}>{t('content1.subheader')}</h2>
+            <h2 class={'text-3xl md:text-4xl'}>{t('content1.title')}</h2>
+            <h2 class={'text-3xl md:text-4xl'}>{t('content1.subheader')}</h2>
         </div>
 
-        <div class={'col-start-2 col-span-2 flex flex-col gap-4 min-w-[250px] text-justify'}>
+        <div class={'flex flex-col gap-6 min-w-[250px] text-justify md:col-start-2 md:col-span-2 md:gap-4'}>
             <p>{t('content1.text1')}</p>
             <p>{t('content1.text2')}</p>
 
