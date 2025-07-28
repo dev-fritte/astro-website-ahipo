@@ -2,7 +2,7 @@
 import React from 'react';
 import {type Lang, useTranslations} from '@/i18n';
 import {ContentBlock} from '@/components/ContentBlock.tsx';
-import { Image } from 'astro:assets';
+import {Image} from 'astro:assets';
 import heroImage from '@/images/melanie_ahipo.png';
 
 const locale = Astro.currentLocale as Lang;
@@ -11,10 +11,12 @@ const t = useTranslations(locale)
 
 <div class={'w-full flex bg-corporate-main'}>
     <ContentBlock disableVerticalPadding={true}>
-        <div class="flex flex-col-reverse gap-8 mt-12 text-corporate-light w-full md:grid md:grid-cols-5 md:gap-20 md:mt-20">
+        <div class="flex flex-col-reverse gap-8 mt-12 text-corporate-light w-full md:grid md:grid-cols-5 md:gap-10 md:mt-20 xl:gap-10">
 
-            <div class={'col-start-2 justify-end'}>
-                <Image src={heroImage} alt={t('personal.name')} height={500}/>
+            <div class={'col-span-2 2xl:col-start-2 2xl:col-span-1 justify-end'}>
+                <div class="flex flex-1 h-full flex-col justify-end">
+                    <Image src={heroImage} alt={t('personal.name')} height={500}/>
+                </div>
             </div>
 
             <div class={'flex flex-col gap-4 pb-10 md:col-start-3 md:col-span-2'}>
