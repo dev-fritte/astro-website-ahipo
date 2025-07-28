@@ -10,12 +10,12 @@ const t = useTranslations(locale)
 
 <footer class={'py-4 w-full bottom-0'}>
     <ContentBlock>
-        <div class={'flex-1 flex flex-col gap-10'}>
+        <div class={'flex-1 flex flex-col gap-4 md:gap-8'}>
             <div class={'w-56'}>
                 <Icon name={'ahipo_logo'} width={'200px'} height={'50px'}/>
             </div>
 
-            <div class="flex-1 flex justify-between">
+            <div class="flex-1 flex flex-col md:flex-row gap-8 md:justify-between">
                 <div>
                     <p>{t('hero.title')}</p>
                     <p>{t('personal.name')}</p>

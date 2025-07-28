@@ -11,18 +11,18 @@ const t = useTranslations(locale)
 ---
 
 <nav class={'w-full h-20 flex'}>
-    <div class={'h-20 fixed w-full bg-corporate-light flex'}>
-        <ContentBlock>
-            <div class="w-full px-3 flex justify-between items-center">
-                <a class={'w-80'} href={'/'}>
-                    <Icon name={'ahipo_logo'} width={'250px'} height={'50px'}/>
-                </a>
+    <ContentBlock disableVerticalPadding={true}>
+        <div class="w-full flex justify-between items-center">
+            <a class={'w-48 h-32 md:w-80 md:h-full flex items-center'} href={'/'}>
+                <Icon name={'ahipo_logo'} width={'100%'} height={'100%'}/>
+            </a>
 
-                <div class={'flex gap-4'}>
-                    <LanguageSwitch/>
+            <div class={'flex gap-4'}>
+                <LanguageSwitch/>
+                <div class="hidden md:block">
                     <Button text={t({de: 'Kontakt', en: 'Contact'})}/>
                 </div>
             </div>
-        </ContentBlock>
-    </div>
+        </div>
+    </ContentBlock>
 </nav>
