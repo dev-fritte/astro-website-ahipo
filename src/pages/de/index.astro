@@ -6,13 +6,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import Hero from '@/components/Hero.astro'
 import Features from '@/components/Features.astro'
 import ContactBlock from '@/components/ContactBlock.astro'
-import  {type Lang,useTranslations} from '../../i18n'
+import {type Lang, useTranslations} from '../../i18n'
 
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
 ---
-<BaseLayout title={t('personal.name')} description={t('hero.title')}>
+<BaseLayout title={`${t('personal.name')} | ${t('hero.title')}`}
+            description={`${t('hero.title')} in ${t('personal.address.city')}`}>
     <Hero/>
     <Features/>
     <Content1/>

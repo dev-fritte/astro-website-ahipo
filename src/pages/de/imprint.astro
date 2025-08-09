@@ -8,7 +8,7 @@ const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
 ---
 
-<BaseLayout title={t('general.imprint')} description={t('hero.title')}>
+<BaseLayout title={`${t('personal.name')} - ${t('general.imprint')}`} description={t('hero.title')}>
     <div class="max-w-[80%] m-auto mt-10">
         <h1 class="adsimple-323031523 text-4xl font-bold">Impressum</h1>
         <br>
@@ -82,7 +82,8 @@ const t = useTranslations(locale)
         </p>
         <br/>
 
-        <h2 id="universalschlichtungsstelle" class="adsimple-323031523 fusion-responsive-typography-calculated text-2xl font-bold mb-2"
+        <h2 id="universalschlichtungsstelle"
+            class="adsimple-323031523 fusion-responsive-typography-calculated text-2xl font-bold mb-2"
             data-fontsize="24" style="--fontSize: 24;line-height: 1.5;--minFontSize: 24" data-lineheight="36px">
             Universal­schlichtungs­stelle</h2>
         <p class="adsimple-323031523">An einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle nehmen
@@ -91,9 +92,10 @@ const t = useTranslations(locale)
                                                                                 href="https://www.verbraucher-schlichter.de/"
                                                                                 target="_blank" rel="follow noopener">https://www.verbraucher-schlichter.de</a>).
         </p>
-        <br />
+        <br/>
         <p>Alle Texte sind urheberrechtlich geschützt.</p>
         <p style="margin-top:15px">Quelle: Erstellt mit dem
-            <a href="https://www.adsimple.de/impressum-generator/" title="Impressum Generator Deutschland von AdSimple">Impressum Generator</a> von AdSimple</p>
+            <a href="https://www.adsimple.de/impressum-generator/" title="Impressum Generator Deutschland von AdSimple">Impressum
+                Generator</a> von AdSimple</p>
     </div>
 </BaseLayout>

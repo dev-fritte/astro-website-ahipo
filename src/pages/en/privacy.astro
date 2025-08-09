@@ -8,7 +8,7 @@ const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale)
 ---
 
-<BaseLayout title={t('general.privacy')} description={t('hero.title')}>
+<BaseLayout title={`${t('personal.name')} - ${t('general.privacy')}`} description={t('hero.title')}>
     <div class="max-w-[80%] m-auto">
         <h1 class="adsimple-323031523 text-4xl font-bold mt-10">Datenschutzerklärung</h1>
         <br />

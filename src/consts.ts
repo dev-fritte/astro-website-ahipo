@@ -6,7 +6,7 @@ import {type Multilingual} from '@/i18n';
 export const SITE_TITLE: string | Multilingual = "Melanie Ahipo";
 
 export const SITE_DESCRIPTION: string | Multilingual = {
-    en: "A starter template for Astro with i18n support.",
+    en: "Lawyer & conservator",
     de: 'Rechtsanwältin & rechtliche Betreuerin'
 };
 

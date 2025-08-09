@@ -18,14 +18,17 @@ import {useTranslations, LOCALES, getLocalePaths, type Lang} from '@/i18n';
 const language = Astro.currentLocale as Lang
 const t = useTranslations(language);
 
-const localeTitle = title ? `${title} - ${t(SITE_TITLE)}` : t(SITE_TITLE);
+const localeTitle = title ? `${title}` : t(SITE_TITLE);
 const localeDescription = description || t(SITE_DESCRIPTION);
 ---
 <html lang={language} class={'h-full'}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="author" content={t('personal.name')}/>
+    <meta name="keywords" content={`${t('personal.name')}, ${t('hero.title')}, ${t('personal.address.city')}`}/>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="sitemap" href="/sitemap-index.xml"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
     <!--font preload -->
     <link
@@ -39,7 +42,6 @@ const localeDescription = description || t(SITE_DESCRIPTION);
             title={t(localeTitle)}
             description={t(localeDescription)}
             titleDefault={t(localeTitle)}
-
             openGraph={{
                 basic: {
                     title: title,
