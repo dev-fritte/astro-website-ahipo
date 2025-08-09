@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ahipo.de/sitemap.xml
+Sitemap: https://ahipo.de/sitemap-index.xml

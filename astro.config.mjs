@@ -8,9 +8,11 @@ import svgr from 'vite-plugin-svgr'
 
 import jopSoftwarecookieconsent from '@jop-software/astro-cookieconsent';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-    integrations: [react(), tailwind(), icon(), jopSoftwarecookieconsent({
+    integrations: [react(), tailwind(), icon(), sitemap(), jopSoftwarecookieconsent({
         guiOptions: {
             consentModal: {
                 layout: 'box',
@@ -119,8 +121,7 @@ export default defineConfig({
                 },
             },
         },
-    })
-    ],
+    })],
     site: 'https://ahipo.de',
     i18n: {
         defaultLocale: 'de',

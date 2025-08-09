@@ -25,6 +25,7 @@ const localeDescription = description || t(SITE_DESCRIPTION);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
     <!--font preload -->
     <link
@@ -37,6 +38,8 @@ const localeDescription = description || t(SITE_DESCRIPTION);
     <SEO
             title={t(localeTitle)}
             description={t(localeDescription)}
+            titleDefault={t(localeTitle)}
+
             openGraph={{
                 basic: {
                     title: title,
