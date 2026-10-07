@@ -1,19 +1,11 @@
+@import '@fontsource-variable/montserrat/wght.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer theme {
-    @font-face {
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 200 700;
-        font-display: swap;
-        src: url('/fonts/Montserrat-VariableFont_wght.ttf') format("truetype");
-    }
-}
-
 html {
-    font-family: Montserrat;
+    font-family: 'Montserrat Variable', sans-serif;
 }
 
 ol, ul {

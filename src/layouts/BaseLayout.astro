@@ -3,6 +3,7 @@ import {SEO} from 'astro-seo';
 import Header from '@/components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+import fontUrl from '@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url';
 import '@/styles/global.css'
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 
@@ -31,12 +32,7 @@ const localeDescription = description || t(SITE_DESCRIPTION);
     <link rel="icon" href="/favicon.ico">
     <link rel="sitemap" href="/sitemap-index.xml"/>
     <!--font preload -->
-    <link
-            rel="preload"
-            href="/fonts/Montserrat-VariableFont_wght.ttf"
-            as="font"
-            crossorigin
-    />
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin/>
 
     <SEO
             title={t(localeTitle)}
