@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 import '@/styles/global.css'
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
 
 interface Props {
     title: string;
@@ -29,7 +30,6 @@ const localeDescription = description || t(SITE_DESCRIPTION);
     <meta name="keywords" content={`${t('personal.name')}, ${t('hero.title')}, ${t('personal.address.city')}`}/>
     <link rel="icon" href="/favicon.ico">
     <link rel="sitemap" href="/sitemap-index.xml"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
     <!--font preload -->
     <link
             rel="preload"
@@ -46,7 +46,7 @@ const localeDescription = description || t(SITE_DESCRIPTION);
                 basic: {
                     title: title,
                     type: 'website',
-                    image: 'https://raw.githubusercontent.com/dev-fritte/astro-website-ahipo/refs/heads/master/src/images/melanie_ahipo.png',
+                    image: 'https://ahipo.de/og-image.png',
                 }
             }}
 
