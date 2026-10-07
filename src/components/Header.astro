@@ -15,7 +15,7 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-10 bg-corporate-light">
+<header class="sticky top-0 z-10 bg-corporate-light transition-shadow duration-200 motion-reduce:transition-none data-[scrolled]:shadow-header">
     <div class="container-x lg:flex lg:min-h-20 lg:items-center lg:gap-7">
         <div class="flex min-h-[72px] items-center justify-between gap-4 lg:contents">
             <a href={home} aria-label={t('nav.home.label')}
@@ -65,6 +65,13 @@ const links = [
 </header>
 
 <script>
+    const header = document.querySelector('header');
+    if (header) {
+        const updateShadow = () => header.toggleAttribute('data-scrolled', window.scrollY > 0);
+        updateShadow();
+        window.addEventListener('scroll', updateShadow, {passive: true});
+    }
+
     const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
     const nav = document.getElementById('hauptnavigation');
 

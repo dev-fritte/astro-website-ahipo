@@ -18,6 +18,7 @@ export default {
             },
             boxShadow: {
                 card: '0 1px 2px rgba(59, 35, 80, 0.06), 0 12px 32px rgba(128, 70, 173, 0.08)',
+                header: '0 2px 4px rgba(59, 35, 80, 0.08), 0 8px 24px rgba(59, 35, 80, 0.12)',
             },
         },
         colors: {
