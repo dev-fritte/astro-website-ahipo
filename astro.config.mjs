@@ -123,6 +123,9 @@ export default defineConfig({
         },
     })],
     site: 'https://ahipo.de',
+    redirects: {
+        '/': '/de/',
+    },
     i18n: {
         defaultLocale: 'de',
         locales: ['en', 'de'],
