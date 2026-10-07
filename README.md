@@ -9,4 +9,7 @@
 
 ### Setup
 
+* this project uses [Yarn](https://classic.yarnpkg.com/) (v1) as package manager - don't use npm
+* run `yarn install` to install dependencies
 * run `yarn dev` to start the development server
+* run `yarn build` to create the static site in `dist/`
