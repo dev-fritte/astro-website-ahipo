@@ -9,7 +9,12 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind(), icon(), sitemap(), jopSoftwarecookieconsent({
+    integrations: [tailwind(), icon(), sitemap({
+        i18n: {
+            defaultLocale: 'de',
+            locales: {de: 'de-DE', en: 'en-US'},
+        },
+    }), jopSoftwarecookieconsent({
         guiOptions: {
             consentModal: {
                 layout: 'box',

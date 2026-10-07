@@ -15,10 +15,35 @@ interface Props {
 const {title, description} = Astro.props;
 
 import {SITE_TITLE, SITE_DESCRIPTION} from '@/consts';
-import {useTranslations, LOCALES, getLocalePaths, type Lang} from '@/i18n';
+import {useTranslations, LOCALES, getLocalePaths, DEFAULT_LOCALE, type Lang} from '@/i18n';
 
 const language = Astro.currentLocale as Lang
 const t = useTranslations(language);
+
+const toAbsolute = (path: string) => new URL(path, Astro.site).href;
+const canonicalUrl = toAbsolute(Astro.url.pathname);
+const alternates = getLocalePaths(Astro.url).map(({lang, path}) => ({lang, href: toAbsolute(path)}));
+const defaultAlternate = alternates.find(({lang}) => lang === DEFAULT_LOCALE);
+const ogLocales: Record<string, string> = {de: 'de_DE', en: 'en_US'};
+const isHome = Astro.url.pathname.replace(/\/$/, '') === `/${language}`;
+
+const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'LegalService',
+    name: t('personal.name'),
+    description: t(SITE_DESCRIPTION),
+    url: toAbsolute(`/${language}/`),
+    image: toAbsolute('/og-image.png'),
+    telephone: '+49 7611 5534480',
+    email: 'info@ahipo.de',
+    address: {
+        '@type': 'PostalAddress',
+        streetAddress: t('personal.address.street'),
+        postalCode: '79106',
+        addressLocality: 'Freiburg im Breisgau',
+        addressCountry: 'DE',
+    },
+};
 
 const localeTitle = title ? `${title}` : t(SITE_TITLE);
 const localeDescription = description || t(SITE_DESCRIPTION);
@@ -35,6 +60,13 @@ const localeDescription = description || t(SITE_DESCRIPTION);
     <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin/>
 
     <SEO
+            canonical={canonicalUrl}
+            extend={{
+                link: [
+                    ...alternates.map(({lang, href}) => ({rel: 'alternate', hreflang: lang, href})),
+                    ...(defaultAlternate ? [{rel: 'alternate', hreflang: 'x-default', href: defaultAlternate.href}] : []),
+                ],
+            }}
             title={t(localeTitle)}
             description={t(localeDescription)}
             titleDefault={t(localeTitle)}
@@ -42,11 +74,18 @@ const localeDescription = description || t(SITE_DESCRIPTION);
                 basic: {
                     title: title,
                     type: 'website',
-                    image: 'https://ahipo.de/og-image.png',
+                    url: canonicalUrl,
+                    image: toAbsolute('/og-image.png'),
+                },
+                optional: {
+                    locale: ogLocales[language],
+                    localeAlternate: Object.entries(ogLocales).filter(([lang]) => lang !== language).map(([, l]) => l),
+                    siteName: t(SITE_TITLE),
                 }
             }}
 
     />
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}/>}
 </head>
 <body class="bg-corporate-light h-full flex flex-col text-corporate-main">
 <header>
