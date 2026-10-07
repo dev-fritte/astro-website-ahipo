@@ -14,7 +14,7 @@ const t = useTranslations(locale)
 
             <div class={'col-span-2 2xl:col-start-2 2xl:col-span-1 justify-end'}>
                 <div class="flex flex-1 h-full flex-col justify-end">
-                    <Image src={heroImage} alt={t('personal.name')} height={500}/>
+                    <Image src={heroImage} alt={t('personal.name')} height={500} loading="eager" fetchpriority="high"/>
                 </div>
             </div>
 

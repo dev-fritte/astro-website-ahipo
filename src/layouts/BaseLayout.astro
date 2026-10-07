@@ -77,6 +77,12 @@ const localeDescription = description || t(SITE_DESCRIPTION);
                     url: canonicalUrl,
                     image: toAbsolute('/og-image.png'),
                 },
+                image: {
+                    alt: t('personal.name'),
+                    width: 750,
+                    height: 750,
+                    type: 'image/png',
+                },
                 optional: {
                     locale: ogLocales[language],
                     localeAlternate: Object.entries(ogLocales).filter(([lang]) => lang !== language).map(([, l]) => l),
