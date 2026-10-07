@@ -29,7 +29,6 @@ export default {
                 light: '#faf2ff',
                 main: '#8046ad',
                 dark: '#5e2f85',
-                arch: '#9560c0',
                 tint: '#f1e3fb',
                 line: '#c9a6e8',
                 'line-soft': '#dcc3f0',
