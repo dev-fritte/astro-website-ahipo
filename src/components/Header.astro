@@ -1,14 +1,11 @@
 ---
-import React from 'react';
-import {type Lang, useTranslations} from '../i18n';
-import {ContentBlock} from '@/components/ContentBlock.tsx'
+import type {Lang} from '../i18n';
+import ContentBlock from '@/components/ContentBlock.astro'
 import LanguageSwitch from '@/components/LanguageSwitch.astro'
 import {Icon} from 'astro-icon/components';
-import Button from './Button.astro'
 import {getRelativeLocaleUrl} from 'astro:i18n';
 
 const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
 ---
 
 <nav class={'w-full h-20 flex fixed bg-corporate-light'}>
@@ -20,9 +17,6 @@ const t = useTranslations(locale)
 
             <div class={'flex gap-4'}>
                 <LanguageSwitch/>
-                <div class="hidden">
-                    <Button text={t({de: 'Kontakt', en: 'Contact'})}/>
-                </div>
             </div>
         </div>
     </ContentBlock>

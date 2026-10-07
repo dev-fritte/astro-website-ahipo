@@ -1,10 +1,7 @@
 import {defineConfig} from 'astro/config';
 
-import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
-
-import svgr from 'vite-plugin-svgr'
 
 import jopSoftwarecookieconsent from '@jop-software/astro-cookieconsent';
 
@@ -12,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [react(), tailwind(), icon(), sitemap(), jopSoftwarecookieconsent({
+    integrations: [tailwind(), icon(), sitemap(), jopSoftwarecookieconsent({
         guiOptions: {
             consentModal: {
                 layout: 'box',
@@ -133,18 +130,5 @@ export default defineConfig({
             prefixDefaultLocale: true,
             redirectToDefaultLocale: false,
         },
-    },
-    vite: {
-        plugins: [
-            svgr({
-                include: '**/*.svg?react',
-                svgrOptions: {
-                    plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
-                    svgoConfig: {
-                        plugins: [],
-                    },
-                },
-            }),
-        ],
     },
 });

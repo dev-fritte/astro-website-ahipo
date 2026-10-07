@@ -1,0 +1,11 @@
+---
+interface Props {
+    disableVerticalPadding?: boolean
+}
+
+const {disableVerticalPadding} = Astro.props;
+---
+
+<div class={`w-full flex-1 flex px-4 xl:px-20 ${disableVerticalPadding ? '' : 'py-8'}`}>
+    <slot/>
+</div>
