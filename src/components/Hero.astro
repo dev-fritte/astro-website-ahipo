@@ -1,29 +1,44 @@
 ---
 import {type Lang, useTranslations} from '@/i18n';
-import ContentBlock from '@/components/ContentBlock.astro';
 import {Image} from 'astro:assets';
 import heroImage from '@/images/melanie_ahipo.png';
 
 const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
+const t = useTranslations(locale);
+
+const buttonBase = 'inline-flex min-h-[52px] flex-[1_1_100%] items-center justify-center rounded-lg px-7 text-center text-base no-underline xs:flex-[0_1_auto]';
 ---
 
-<div class={'w-full flex bg-corporate-main'}>
-    <ContentBlock disableVerticalPadding={true}>
-        <div class="flex flex-col-reverse gap-8 mt-12 text-corporate-light w-full md:grid md:grid-cols-5 md:gap-10 md:mt-20 xl:gap-10">
-
-            <div class={'col-span-2 2xl:col-start-2 2xl:col-span-1 justify-end'}>
-                <div class="flex flex-1 h-full flex-col justify-end">
-                    <Image src={heroImage} alt={t('personal.name')} height={500} loading="eager" fetchpriority="high"/>
-                </div>
-            </div>
-
-            <div class={'flex flex-col gap-4 pb-10 md:col-start-3 md:col-span-2'}>
-                <div class={'uppercase'}>
-                    <h1 class={'text-6xl md:text-8xl'}>{t('personal.name')}</h1>
-                </div>
-                <p class={'text-xl md:text-2xl'}>{t('hero.title')}</p>
+<section class="on-purple bg-corporate-main pt-12 text-corporate-light md:pt-16 lg:pt-[72px]">
+    <div class="container-x grid grid-cols-1 items-end gap-10 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] lg:gap-[72px]">
+        <div class="flex flex-col gap-5 md:pb-16 lg:gap-6 lg:pb-[88px]">
+            <p class="text-[0.8125rem] font-medium uppercase tracking-[0.2em] lg:text-sm">{t('hero.eyebrow')}</p>
+            <h1 class="text-[clamp(2.75rem,12vw,6.5rem)] font-light uppercase leading-[1.02] tracking-[0.02em] md:text-[clamp(3.25rem,7.2vw,6.5rem)]">
+                {t('personal.name')}
+            </h1>
+            <p class="max-w-[520px] text-[clamp(1.25rem,2vw,1.625rem)] leading-[1.4]">{t('hero.title')}</p>
+            <p class="max-w-[520px]">{t('hero.lead')}</p>
+            <div class="mt-2 flex flex-wrap gap-3">
+                <a href="#kontakt"
+                   class:list={[buttonBase, 'bg-corporate-light font-semibold text-corporate-dark hover:bg-white hover:text-corporate-dark']}>
+                    {t('hero.cta.contact')}
+                </a>
+                <a href="#leistungen"
+                   class:list={[buttonBase, 'border-[1.5px] border-corporate-light font-medium text-corporate-light hover:bg-corporate-light/10 hover:text-corporate-light']}>
+                    {t('hero.cta.services')}
+                </a>
             </div>
         </div>
-    </ContentBlock>
-</div>
+
+        <div class="mx-auto flex h-[340px] w-full max-w-[320px] items-end justify-center overflow-hidden rounded-t-[160px] bg-corporate-arch md:order-first md:h-[380px] md:max-w-none md:rounded-t-[150px] lg:h-[480px] lg:rounded-t-[240px]">
+            <Image src={heroImage}
+                   alt={t('personal.name')}
+                   widths={[320, 440, 640, 880]}
+                   sizes="(min-width: 1024px) 440px, (min-width: 768px) 300px, 320px"
+                   format="webp"
+                   loading="eager"
+                   fetchpriority="high"
+                   class="block h-full w-full object-cover object-top"/>
+        </div>
+    </div>
+</section>

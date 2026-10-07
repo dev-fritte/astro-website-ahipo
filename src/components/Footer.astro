@@ -1,46 +1,40 @@
 ---
 import {Icon} from 'astro-icon/components';
-import ContentBlock from '@/components/ContentBlock.astro';
-import {type Lang, useTranslations} from '../i18n';
+import {type Lang, useTranslations} from '@/i18n';
 
 const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
+const t = useTranslations(locale);
+
+const socials = [
+    {icon: 'mdi:instagram', label: 'footer.instagram', href: 'https://www.instagram.com/rechtsanwaeltin_ahipo/'},
+    {icon: 'mdi:xing', label: 'footer.xing', href: 'https://www.xing.com/profile/Melanie_Ahipo'},
+];
 ---
 
-<footer class={'py-4 w-full bottom-0'}>
-    <ContentBlock>
-        <div class={'flex-1 flex flex-col gap-4 md:gap-8'}>
-            <div class={'w-56'}>
-                <Icon name={'ahipo_logo'} width={'200px'} height={'50px'}/>
-            </div>
-
-            <div class="flex-1 flex flex-col md:flex-row gap-8 md:justify-between">
-                <div>
-                    <p>{t('hero.title')}</p>
-                    <p>{t('personal.name')}</p>
-                    <p>{t('personal.address.street')}</p>
-                    <p>{t('personal.address.city')}</p>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <p>{t('footer.socials.title')}</p>
-                    <div class="flex gap-2">
-                        <a href={'https://www.instagram.com/rechtsanwaeltin_ahipo/'} target="_blank" rel="noopener noreferrer">
-                            <Icon name={'mdi:instagram'} size={50}/>
+<footer class="pb-8 pt-12 md:pb-10 md:pt-14">
+    <div class="container-x">
+        <div class="flex flex-col gap-8 md:flex-row md:justify-between md:gap-16">
+            <address class="flex flex-col gap-0.5 not-italic">
+                <span class="font-semibold text-corporate-main">{t('personal.name')}</span>
+                <span>{t('hero.title')}</span>
+                <span>{t('personal.address.street')}</span>
+                <span>{t('personal.address.city')}</span>
+            </address>
+            <div>
+                <p class="font-semibold text-corporate-main">{t('footer.socials.title')}</p>
+                <div class="mt-1 flex gap-2">
+                    {socials.map(({icon, label, href}) => (
+                        <a href={href} target="_blank" rel="noopener noreferrer" aria-label={t(label)}
+                           class="inline-flex size-11 items-center justify-center">
+                            <Icon name={icon} size={32} aria-hidden="true"/>
                         </a>
-
-                        <a href={'https://www.xing.com/profile/Melanie_Ahipo'} target="_blank" rel="noopener noreferrer">
-                            <Icon name={'mdi:xing'} size={50}/>
-                        </a>
-                    </div>
+                    ))}
                 </div>
-            </div>
-
-            <div class={'flex gap-4 text-sm'}>
-                <a href={`/${locale}/imprint`}>{t('general.imprint')}</a>
-                <div class={'inline-block w-0.5 self-stretch bg-corporate-main'}></div>
-                <a href={`/${locale}/privacy`}>{t('general.privacy')}</a>
             </div>
         </div>
-    </ContentBlock>
+        <div class="mt-8 flex flex-wrap gap-x-6 border-t border-corporate-line-soft pt-3 text-[0.9375rem] md:mt-10">
+            <a href={`/${locale}/imprint`} class="inline-flex min-h-11 items-center">{t('general.imprint')}</a>
+            <a href={`/${locale}/privacy`} class="inline-flex min-h-11 items-center">{t('general.privacy')}</a>
+        </div>
+    </div>
 </footer>

@@ -4,8 +4,63 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --container: 1200px;
+    --gutter: 20px;
+    --section-y: 64px;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --gutter: 40px;
+        --section-y: 88px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --gutter: 80px;
+        --section-y: 104px;
+    }
+}
+
 html {
-    font-family: 'Montserrat Variable', sans-serif;
+    font-family: 'Montserrat Variable', 'Avenir Next', 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+:focus-visible {
+    outline: 3px solid theme('colors.corporate.dark');
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.on-purple :focus-visible {
+    outline-color: theme('colors.corporate.light');
+}
+
+@layer components {
+    .container-x {
+        @apply mx-auto w-full;
+        max-width: calc(var(--container) + 2 * var(--gutter));
+        padding-inline: var(--gutter);
+    }
+
+    .section-y {
+        padding-block: var(--section-y);
+    }
+
+    .section-title {
+        @apply text-balance text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-tight text-corporate-main;
+    }
 }
 
 ol, ul {
@@ -20,5 +75,10 @@ ol {
 }
 
 a {
+    color: theme('colors.corporate.main');
     text-decoration: underline;
+}
+
+a:hover {
+    color: theme('colors.corporate.dark');
 }

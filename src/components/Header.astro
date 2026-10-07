@@ -1,23 +1,86 @@
 ---
-import type {Lang} from '../i18n';
-import ContentBlock from '@/components/ContentBlock.astro'
-import LanguageSwitch from '@/components/LanguageSwitch.astro'
 import {Icon} from 'astro-icon/components';
 import {getRelativeLocaleUrl} from 'astro:i18n';
+import {type Lang, useTranslations} from '@/i18n';
+import LanguageSwitch from '@/components/LanguageSwitch.astro';
 
 const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+const home = getRelativeLocaleUrl(locale);
+
+const links = [
+    {href: `${home}#leistungen`, label: t('nav.services')},
+    {href: `${home}#ueber-mich`, label: t('nav.about')},
+    {href: `${home}#kontakt`, label: t('general.contact')},
+];
 ---
 
-<nav class={'w-full h-20 flex fixed bg-corporate-light'}>
-    <ContentBlock disableVerticalPadding={true}>
-        <div class="w-full flex justify-between items-center">
-            <a class={'w-48 h-32 md:w-80 md:h-full flex items-center'} href={getRelativeLocaleUrl(locale)}>
-                <Icon name={'ahipo_logo'} width={'100%'} height={'100%'}/>
+<header class="sticky top-0 z-10 bg-corporate-light">
+    <div class="container-x lg:flex lg:min-h-20 lg:items-center lg:gap-7">
+        <div class="flex min-h-[72px] items-center justify-between gap-4 lg:contents">
+            <a href={home} aria-label={t('nav.home.label')}
+               class="flex min-w-0 items-center gap-3 text-corporate-main no-underline hover:text-corporate-main">
+                <Icon name="ahipo_mark" aria-hidden="true" class="h-[33px] w-11 flex-none sm:h-[38px] sm:w-[52px]"/>
+                <span>
+                    <span class="block text-sm font-semibold leading-[1.15] tracking-[0.14em] xs:whitespace-nowrap xs:text-base sm:text-xl">
+                        MELANIE<br class="xs:hidden"/> AHIPO
+                    </span>
+                    <span class="mt-0.5 hidden whitespace-nowrap text-[0.625rem] font-medium uppercase leading-[1.2] tracking-[0.22em] sm:block">
+                        {t('logo.claim')}
+                    </span>
+                </span>
             </a>
 
-            <div class={'flex gap-4'}>
+            <div class="flex items-center gap-2 lg:order-3">
                 <LanguageSwitch/>
+                <button type="button"
+                        class="menu-btn group inline-flex size-11 items-center justify-center rounded-lg border-[1.5px] border-corporate-main text-corporate-main lg:hidden"
+                        aria-expanded="false"
+                        aria-controls="hauptnavigation"
+                        aria-label={t('nav.menu.open')}
+                        data-label-open={t('nav.menu.open')}
+                        data-label-close={t('nav.menu.close')}>
+                    <svg class="block size-6 group-aria-expanded:hidden" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
+                    <svg class="hidden size-6 group-aria-expanded:block" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18"/>
+                    </svg>
+                </button>
             </div>
         </div>
-    </ContentBlock>
-</nav>
+
+        <nav id="hauptnavigation" aria-label={t('nav.main')}
+             class="hidden flex-col border-t border-corporate-line-soft pb-4 data-[open]:flex lg:order-2 lg:ml-auto lg:flex lg:flex-row lg:items-center lg:gap-7 lg:border-0 lg:pb-0">
+            {links.map(({href, label}) => (
+                <a href={href}
+                   class="flex min-h-12 items-center border-b border-corporate-line-soft text-[1.0625rem] font-medium no-underline lg:min-h-11 lg:border-0 lg:text-[0.9375rem]">
+                    {label}
+                </a>
+            ))}
+        </nav>
+    </div>
+</header>
+
+<script>
+    const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+    const nav = document.getElementById('hauptnavigation');
+
+    if (btn && nav) {
+        const setOpen = (open: boolean) => {
+            nav.toggleAttribute('data-open', open);
+            btn.setAttribute('aria-expanded', String(open));
+            btn.setAttribute('aria-label', (open ? btn.dataset.labelClose : btn.dataset.labelOpen) ?? '');
+        };
+
+        btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+        nav.addEventListener('click', (e) => {
+            if ((e.target as HTMLElement).closest('a')) setOpen(false);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setOpen(false);
+        });
+    }
+</script>

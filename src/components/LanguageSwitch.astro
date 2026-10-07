@@ -1,8 +1,15 @@
 ---
 import {getLanguagePath} from '../utils/language';
-import Button from './Button.astro'
+import {type Lang, useTranslations} from '@/i18n';
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+const targetPath = getLanguagePath(locale);
 ---
 
-<a href={getLanguagePath(Astro.currentLocale)}>
-    <Button text={'DE/EN'}/>
+<a href={targetPath}
+   hreflang={targetPath.slice(1)}
+   aria-label={t('lang.switch')}
+   class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg bg-corporate-main px-4 text-[0.9375rem] font-medium tracking-[0.04em] text-corporate-light no-underline hover:bg-corporate-dark hover:text-corporate-light">
+    DE/EN
 </a>

@@ -1,38 +1,31 @@
 ---
-import ContentBlock from '@/components/ContentBlock.astro'
 import {Icon} from 'astro-icon/components';
-import Button from './Button.astro';
 import {type Lang, useTranslations} from '@/i18n';
 
 const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
+const t = useTranslations(locale);
+
+const services = [
+    {icon: 'mdi:legal', title: 'features.legal.title', text: 'features.legal.text'},
+    {icon: 'mdi:handshake-outline', title: 'features.assistance.title', text: 'features.assistance.text'},
+];
 ---
 
-
-<ContentBlock>
-    <div class="mt-10 w-full flex flex-col gap-10">
-
-        <div class={'self-center text-center mb-4'}>
-            <h2 class={'text-3xl md:text-4xl'}>{t('features.title')}</h2>
-        </div>
-
-        <div class={'flex-1 grid gap-10 grid-flow-row md:grid-flow-col md:grid-cols-5'}>
-
-            <div class={'md:col-start-2 flex justify-center'}>
-                <div class={'max-w-[500px] min-w-[250px] flex flex-col gap-8 items-center text-justify'}>
-                    <Icon name={'mdi:legal'} size={50}/>
-                    <h3 class={'text-2xl md:text-3xl'}>{t('features.legal.title')}</h3>
-                    <p>{t('features.legal.text')}</p>
-                </div>
-            </div>
-
-            <div class={'md:col-start-4 flex justify-center'}>
-                <div class={'max-w-[500px] min-w-[250px] flex flex-col items-center gap-8 text-justify'}>
-                    <Icon name={'mdi:handshake-outline'} size={50}/>
-                    <h3 class={'text-2xl md:text-3xl'}>{t('features.assistance.title')}</h3>
-                    <p>{t('features.assistance.text')}</p>
-                </div>
-            </div>
+<section id="leistungen" class="section-y">
+    <div class="container-x flex flex-col gap-8 md:gap-14">
+        <h2 class="section-title max-w-[720px]">{t('features.title')}</h2>
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-8">
+            {services.map(({icon, title, text}) => (
+                <article class="flex flex-col gap-4 rounded-2xl bg-white p-7 shadow-card md:gap-5 md:p-11">
+                    <div class="flex size-[60px] items-center justify-center rounded-full bg-corporate-tint text-corporate-main">
+                        <Icon name={icon} size={30} aria-hidden="true"/>
+                    </div>
+                    <h3 class="hyphens-auto break-words text-[clamp(1.375rem,2.2vw,1.75rem)] font-medium leading-tight text-corporate-main">
+                        {t(title)}
+                    </h3>
+                    <p>{t(text)}</p>
+                </article>
+            ))}
         </div>
     </div>
-</ContentBlock>
+</section>

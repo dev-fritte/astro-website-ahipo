@@ -1,24 +1,25 @@
 ---
-import ContentBlock from '@/components/ContentBlock.astro';
 import {type Lang, useTranslations} from '@/i18n';
 
 const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
+const t = useTranslations(locale);
+
+const facts = ['content1.fact1', 'content1.fact2', 'content1.fact3'];
+const paragraphs = ['content1.text1', 'content1.text2', 'content1.text3'];
 ---
 
-<ContentBlock>
-    <div class="flex flex-col gap-6 mt-10 w-full md:grid md:grid-cols-5 md:gap-10">
-
-        <div class={'col-start-2 col-span-2'}>
-            <h2 class={'text-3xl md:text-4xl'}>{t('content1.title')}</h2>
-            <h2 class={'text-3xl md:text-4xl'}>{t('content1.subheader')}</h2>
+<section id="ueber-mich" class="section-y bg-corporate-tint">
+    <div class="container-x grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-20">
+        <div class="flex flex-col gap-7 lg:gap-8">
+            <h2 class="section-title">{t('content1.title')} {t('content1.subheader')}</h2>
+            <ul class="m-0 list-none border-t border-corporate-line p-0">
+                {facts.map((fact) => (
+                    <li class="border-b border-corporate-line py-4 font-medium">{t(fact)}</li>
+                ))}
+            </ul>
         </div>
-
-        <div class={'flex flex-col gap-6 min-w-[250px] text-justify md:col-start-2 md:col-span-2 md:gap-4'}>
-            <p>{t('content1.text1')}</p>
-            <p>{t('content1.text2')}</p>
-
-            <p>{t('content1.text3')}</p>
+        <div class="flex flex-col gap-5 lg:gap-[22px]">
+            {paragraphs.map((text) => <p>{t(text)}</p>)}
         </div>
     </div>
-</ContentBlock>
+</section>
