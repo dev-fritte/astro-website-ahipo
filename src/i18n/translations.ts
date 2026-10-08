@@ -41,7 +41,8 @@ const translations: translations = {
         'contact.email': 'Email',
         'contact.whatsapp': 'WhatsApp',
         'footer.instagram': 'Instagram',
-        'footer.xing': 'Xing'
+        'footer.xing': 'Xing',
+        'nav.skip': 'Skip to content'
     },
     'de': {
         'personal.name': 'Melanie Ahipo',
@@ -82,7 +83,8 @@ const translations: translations = {
         'contact.email': 'E-Mail',
         'contact.whatsapp': 'WhatsApp',
         'footer.instagram': 'Instagram',
-        'footer.xing': 'Xing'
+        'footer.xing': 'Xing',
+        'nav.skip': 'Zum Inhalt springen'
     },
 } as const;
 

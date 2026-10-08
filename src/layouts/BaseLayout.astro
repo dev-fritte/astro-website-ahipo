@@ -96,8 +96,12 @@ const localeDescription = description || t(SITE_DESCRIPTION);
     {isHome && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}/>}
 </head>
 <body class="flex min-h-full flex-col bg-corporate-light text-base leading-[1.7] text-ink md:text-[1.0625rem]">
+<a href="#main"
+   class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-corporate-dark focus:px-5 focus:py-3 focus:font-medium focus:text-corporate-light focus:no-underline focus:hover:text-corporate-light">
+    {t('nav.skip')}
+</a>
 <Header/>
-<main class="flex flex-1 flex-col">
+<main id="main" class="flex flex-1 flex-col">
     <slot/>
 </main>
 <Footer/>
