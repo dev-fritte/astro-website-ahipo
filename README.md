@@ -18,7 +18,7 @@ A small, fast, fully static site built with [Astro](https://astro.build/). It is
 
 | Purpose | Tool |
 |---|---|
-| Framework | [Astro](https://astro.build/) 5 |
+| Framework | [Astro](https://astro.build/) 7 |
 | Styling | [Tailwind CSS](https://tailwindcss.com/) 4 (via `@tailwindcss/vite`) |
 | Icons | [astro-icon](https://github.com/natemoo-re/astro-icon) with [Iconify MDI](https://icon-sets.iconify.design/mdi/) |
 | SEO | [astro-seo](https://github.com/jonasmerlin/astro-seo), [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) |
@@ -29,7 +29,7 @@ A small, fast, fully static site built with [Astro](https://astro.build/). It is
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) 18.20.8 or newer (20+ recommended)
+- [Node.js](https://nodejs.org/) 22.12.0 or newer
 - [Yarn](https://classic.yarnpkg.com/) 1.x
 
 > This project uses Yarn only. Please do not use npm or pnpm, so that `yarn.lock` stays the single source of truth.

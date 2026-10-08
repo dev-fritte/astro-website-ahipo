@@ -125,6 +125,8 @@ export default defineConfig({
         },
     })],
     site: 'https://ahipo.de',
+    // Astro 7 defaults to 'jsx' whitespace rules, which can drop spaces next to inline elements
+    compressHTML: true,
     redirects: {
         '/': '/de/',
     },
