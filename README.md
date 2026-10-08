@@ -65,14 +65,16 @@ The site is served at <http://localhost:4321>.
 ├── public/                  # Static files copied as-is (favicon, robots.txt, og-image.png)
 ├── src/
 │   ├── components/          # Header, Hero, Features, Content1 (about), ContactBlock, Footer, ...
+│   ├── components/legal/    # Imprint and privacy texts (one component per language)
+│   ├── contact.ts           # Contact data, address and social links (single source of truth)
 │   ├── i18n/translations.ts # All UI texts, German and English
 │   ├── i18n.ts              # Translation helper and locale utilities
 │   ├── icons/               # Local SVG icons (logo, logo mark)
 │   ├── images/              # Optimized images (portrait)
 │   ├── layouts/BaseLayout.astro   # HTML shell, SEO tags, structured data
 │   ├── pages/
-│   │   ├── de/              # index, imprint, privacy (German)
-│   │   └── en/              # index, imprint, privacy (English)
+│   │   ├── [lang]/          # index, imprint, privacy - one set of pages for all languages
+│   │   └── 404.astro        # Bilingual "not found" page
 │   └── styles/global.css    # Tailwind setup and theme (colors, breakpoints, shadows), base styles
 └── astro.config.mjs         # Integrations, Vite plugins, i18n, redirects, cookie consent texts
 ```
@@ -80,7 +82,8 @@ The site is served at <http://localhost:4321>.
 ## Editing content
 
 - **Texts on the start page** live in [`src/i18n/translations.ts`](src/i18n/translations.ts). Add or change a key in both the `de` and the `en` block.
-- **Imprint and privacy policy** are plain Astro pages in `src/pages/de/` and `src/pages/en/`. Update both languages together.
+- **Imprint and privacy policy** live in [`src/components/legal/`](src/components/legal/). The pages in `src/pages/[lang]/` pick the text for the current language and fall back to German. To add an English version, create e.g. `ImprintEn.astro` and register it in the `texts` map of `src/pages/[lang]/imprint.astro` (same for the privacy policy).
+- **New languages** need an entry in `src/locales.ts`, a block in `src/i18n/translations.ts` and the locale in `astro.config.mjs`; the pages are generated automatically.
 - **Contact details** (phone, e-mail, WhatsApp) are defined in [`src/components/ContactBlock.astro`](src/components/ContactBlock.astro). Structured data for search engines (address, phone) is set in [`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro); keep both in sync.
 - **Colors and breakpoints** are configured in the `@theme` block of [`src/styles/global.css`](src/styles/global.css).
 

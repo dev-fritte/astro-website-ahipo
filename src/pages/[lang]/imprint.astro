@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintDe from '@/components/legal/ImprintDe.astro';
+import {getLocaleParams, type Lang, useTranslations} from '@/i18n';
+
+export const getStaticPaths = () => getLocaleParams();
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
+// Legal texts per language; languages without their own text fall back to German
+const texts: Record<string, typeof ImprintDe> = {de: ImprintDe};
+const Text = texts[locale] ?? ImprintDe;
+---
+
+<BaseLayout title={`${t('personal.name')} - ${t('general.imprint')}`} description={t('hero.title')}>
+    <Text/>
+</BaseLayout>

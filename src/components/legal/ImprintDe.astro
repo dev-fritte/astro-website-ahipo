@@ -1,15 +1,4 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
-
-import {type Lang, useTranslations} from '../../i18n';
-
-
-const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
----
-
-<BaseLayout title={`${t('personal.name')} - ${t('general.imprint')}`} description={t('hero.title')}>
-    <div class="container-x break-words pt-10">
+<div class="container-x break-words pt-10">
         <h1 class="adsimple-323031523 text-4xl font-bold">Impressum</h1>
         <br>
         <p class="adsimple-323031523">Informationen über den Diensteanbieter.</p>
@@ -98,4 +87,3 @@ const t = useTranslations(locale)
             <a href="https://www.adsimple.de/impressum-generator/" title="Impressum Generator Deutschland von AdSimple">Impressum
                 Generator</a> von AdSimple</p>
     </div>
-</BaseLayout>

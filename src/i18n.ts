@@ -74,10 +74,11 @@ type LocalePath = {
 
 
 /**
- * Helper to get locale parms for Astro's `getStaticPaths` function
+ * Helper to get locale params for Astro's `getStaticPaths` function.
+ * Returns fresh objects on every call, because Astro must not share them between routes.
  * @returns - The list of locale params
  * @see https://docs.astro.build/en/guides/routing/#dynamic-routes
  */
-export const localeParams = Object.keys(LOCALES).map((lang) => ({
+export const getLocaleParams = () => Object.keys(LOCALES).map((lang) => ({
     params: {lang},
 }));

@@ -1,15 +1,4 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
-
-import  {type Lang,useTranslations} from '../../i18n'
-
-
-const locale = Astro.currentLocale as Lang;
-const t = useTranslations(locale)
----
-
-<BaseLayout title={`${t('personal.name')} - ${t('general.privacy')}`} description={t('hero.title')}>
-    <div class="container-x break-words">
+<div class="container-x break-words">
         <h1 class="adsimple-323031523 text-4xl font-bold mt-10">Datenschutzerklärung</h1>
         <br />
         <h2 id="einleitung-ueberblick" class="adsimple-323031523 text-2xl font-bold mb-2">Einleitung und Überblick</h2>
@@ -836,4 +825,3 @@ const t = useTranslations(locale)
                     href="https://www.adsimple.de/muster-datenschutzerklaerung/" title="Muster Datenschutzerklärung">Muster-Datenschutzerklärung</a>
             an.</p>
     </div>
-</BaseLayout>
