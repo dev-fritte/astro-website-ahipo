@@ -16,6 +16,7 @@ interface Props {
 const {title, description, noindex = false} = Astro.props;
 
 import {SITE_TITLE, SITE_DESCRIPTION} from '@/consts';
+import {ADDRESS, CONTACT} from '@/contact';
 import {useTranslations, LOCALES, getLocalePaths, DEFAULT_LOCALE, type Lang} from '@/i18n';
 
 const language = Astro.currentLocale as Lang
@@ -35,14 +36,14 @@ const structuredData = {
     description: t(SITE_DESCRIPTION),
     url: toAbsolute(`/${language}/`),
     image: toAbsolute('/og-image.png'),
-    telephone: '+49 7611 5534480',
-    email: 'info@ahipo.de',
+    telephone: CONTACT.phone,
+    email: CONTACT.email,
     address: {
         '@type': 'PostalAddress',
-        streetAddress: t('personal.address.street'),
-        postalCode: '79106',
-        addressLocality: 'Freiburg im Breisgau',
-        addressCountry: 'DE',
+        streetAddress: ADDRESS.street,
+        postalCode: ADDRESS.postalCode,
+        addressLocality: ADDRESS.cityLong,
+        addressCountry: ADDRESS.countryCode,
     },
 };
 

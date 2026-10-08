@@ -1,14 +1,15 @@
 ---
 import {type Lang, useTranslations} from '@/i18n';
 import {Icon} from 'astro-icon/components';
+import {CONTACT, mailHref, phoneHref, whatsappHref} from '@/contact';
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale);
 
 const contacts = [
-    {icon: 'mdi:telephone', label: 'contact.phone', value: '+49 7611 5534480', href: 'tel:+4976115534480'},
-    {icon: 'mdi:email-outline', label: 'contact.email', value: 'info@ahipo.de', href: 'mailto:info@ahipo.de'},
-    {icon: 'mdi:whatsapp', label: 'contact.whatsapp', value: '+49 176 83417714', href: 'https://wa.me/+4917683417714/'},
+    {icon: 'mdi:telephone', label: 'contact.phone', value: CONTACT.phone, href: phoneHref(CONTACT.phone)},
+    {icon: 'mdi:email-outline', label: 'contact.email', value: CONTACT.email, href: mailHref(CONTACT.email)},
+    {icon: 'mdi:whatsapp', label: 'contact.whatsapp', value: CONTACT.mobile, href: whatsappHref(CONTACT.mobile)},
 ];
 ---
 

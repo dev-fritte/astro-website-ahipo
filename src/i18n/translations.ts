@@ -1,3 +1,5 @@
+import {ADDRESS} from '@/contact';
+
 type translations = {
     [key: string]: {
         [key: string]: string
@@ -46,8 +48,8 @@ const translations: translations = {
     },
     'de': {
         'personal.name': 'Melanie Ahipo',
-        'personal.address.street': 'Stühlingerstraße 1',
-        'personal.address.city': '79106 Freiburg',
+        'personal.address.street': ADDRESS.street,
+        'personal.address.city': `${ADDRESS.postalCode} ${ADDRESS.city}`,
         'nav.home': 'Zuhause',
         'general.imprint': 'Impressum',
         'general.privacy': 'Datenschutz',

@@ -1,13 +1,14 @@
 ---
 import {Icon} from 'astro-icon/components';
+import {SOCIAL} from '@/contact';
 import {type Lang, useTranslations} from '@/i18n';
 
 const locale = Astro.currentLocale as Lang;
 const t = useTranslations(locale);
 
 const socials = [
-    {icon: 'mdi:instagram', label: 'footer.instagram', href: 'https://www.instagram.com/rechtsanwaeltin_ahipo/'},
-    {icon: 'mdi:xing', label: 'footer.xing', href: 'https://www.xing.com/profile/Melanie_Ahipo'},
+    {icon: 'mdi:instagram', label: 'footer.instagram', href: SOCIAL.instagram},
+    {icon: 'mdi:xing', label: 'footer.xing', href: SOCIAL.xing},
 ];
 ---
 
