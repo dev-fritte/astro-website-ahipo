@@ -10,9 +10,10 @@ import 'vanilla-cookieconsent/dist/cookieconsent.css';
 interface Props {
     title: string;
     description: string;
+    noindex?: boolean;
 }
 
-const {title, description} = Astro.props;
+const {title, description, noindex = false} = Astro.props;
 
 import {SITE_TITLE, SITE_DESCRIPTION} from '@/consts';
 import {useTranslations, LOCALES, getLocalePaths, DEFAULT_LOCALE, type Lang} from '@/i18n';
@@ -61,8 +62,9 @@ const localeDescription = description || t(SITE_DESCRIPTION);
 
     <SEO
             canonical={canonicalUrl}
+            noindex={noindex}
             extend={{
-                link: [
+                link: noindex ? [] : [
                     ...alternates.map(({lang, href}) => ({rel: 'alternate', hreflang: lang, href})),
                     ...(defaultAlternate ? [{rel: 'alternate', hreflang: 'x-default', href: defaultAlternate.href}] : []),
                 ],
