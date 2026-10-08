@@ -1,8 +1,33 @@
 @import '@fontsource-variable/montserrat/wght.css';
+@import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+    /* The corporate palette replaces Tailwind's default colors */
+    --color-*: initial;
+    --color-transparent: transparent;
+    --color-current: currentColor;
+    --color-white: #ffffff;
+    --color-ink: #3b2350;
+    --color-corporate-light: #faf2ff;
+    --color-corporate-main: #8046ad;
+    --color-corporate-dark: #5e2f85;
+    --color-corporate-tint: #f1e3fb;
+    --color-corporate-line: #c9a6e8;
+    --color-corporate-line-soft: #dcc3f0;
+
+    --breakpoint-*: initial;
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+
+    --font-serif: 'Montserrat Variable', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+    --shadow-card: 0 1px 2px rgba(59, 35, 80, 0.06), 0 12px 32px rgba(128, 70, 173, 0.08);
+    --shadow-header: 0 2px 4px rgba(59, 35, 80, 0.08), 0 8px 24px rgba(59, 35, 80, 0.12);
+}
 
 :root {
     --container: 1200px;
@@ -24,27 +49,54 @@
     }
 }
 
-html {
-    font-family: 'Montserrat Variable', 'Avenir Next', 'Segoe UI', sans-serif;
-    scroll-behavior: smooth;
-    scroll-padding-top: 88px;
-    -webkit-text-size-adjust: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
+@layer base {
     html {
-        scroll-behavior: auto;
+        font-family: 'Montserrat Variable', 'Avenir Next', 'Segoe UI', sans-serif;
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+        -webkit-text-size-adjust: 100%;
     }
-}
 
-:focus-visible {
-    outline: 3px solid theme('colors.corporate.dark');
-    outline-offset: 3px;
-    border-radius: 4px;
-}
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
 
-.on-purple :focus-visible {
-    outline-color: theme('colors.corporate.light');
+    :focus-visible {
+        outline: 3px solid var(--color-corporate-dark);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
+
+    .on-purple :focus-visible {
+        outline-color: var(--color-corporate-light);
+    }
+
+    ol, ul {
+        list-style: disc;
+        padding-inline-start: 40px;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    a {
+        color: var(--color-corporate-main);
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: var(--color-corporate-dark);
+    }
+
+    /* Tailwind 4 resets buttons to the default cursor */
+    button:not(:disabled) {
+        cursor: pointer;
+    }
 }
 
 @layer components {
@@ -61,24 +113,4 @@ html {
     .section-title {
         @apply text-balance text-[clamp(1.75rem,3vw,2.5rem)] font-normal leading-tight text-corporate-main;
     }
-}
-
-ol, ul {
-    list-style: disc;
-    padding-inline-start: 40px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-}
-
-ol {
-    list-style: decimal;
-}
-
-a {
-    color: theme('colors.corporate.main');
-    text-decoration: underline;
-}
-
-a:hover {
-    color: theme('colors.corporate.dark');
 }

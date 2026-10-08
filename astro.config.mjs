@@ -1,6 +1,6 @@
 import {defineConfig} from 'astro/config';
 
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
 
 import jopSoftwarecookieconsent from '@jop-software/astro-cookieconsent';
@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind(), icon(), sitemap({
+    integrations: [icon(), sitemap({
         i18n: {
             defaultLocale: 'de',
             locales: {de: 'de-DE', en: 'en-US'},
@@ -127,6 +127,9 @@ export default defineConfig({
     site: 'https://ahipo.de',
     redirects: {
         '/': '/de/',
+    },
+    vite: {
+        plugins: [tailwindcss()],
     },
     i18n: {
         defaultLocale: 'de',

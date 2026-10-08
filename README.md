@@ -19,7 +19,7 @@ A small, fast, fully static site built with [Astro](https://astro.build/). It is
 | Purpose | Tool |
 |---|---|
 | Framework | [Astro](https://astro.build/) 5 |
-| Styling | [Tailwind CSS](https://tailwindcss.com/) 3 |
+| Styling | [Tailwind CSS](https://tailwindcss.com/) 4 (via `@tailwindcss/vite`) |
 | Icons | [astro-icon](https://github.com/natemoo-re/astro-icon) with [Iconify MDI](https://icon-sets.iconify.design/mdi/) |
 | SEO | [astro-seo](https://github.com/jonasmerlin/astro-seo), [@astrojs/sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/) |
 | Font | [@fontsource-variable/montserrat](https://fontsource.org/fonts/montserrat) |
@@ -73,9 +73,8 @@ The site is served at <http://localhost:4321>.
 │   ├── pages/
 │   │   ├── de/              # index, imprint, privacy (German)
 │   │   └── en/              # index, imprint, privacy (English)
-│   └── styles/global.css    # Tailwind setup, layout tokens, base styles
-├── astro.config.mjs         # Integrations, i18n, redirects, cookie consent texts
-└── tailwind.config.mjs      # Colors, breakpoints, shadows
+│   └── styles/global.css    # Tailwind setup and theme (colors, breakpoints, shadows), base styles
+└── astro.config.mjs         # Integrations, Vite plugins, i18n, redirects, cookie consent texts
 ```
 
 ## Editing content
@@ -83,7 +82,7 @@ The site is served at <http://localhost:4321>.
 - **Texts on the start page** live in [`src/i18n/translations.ts`](src/i18n/translations.ts). Add or change a key in both the `de` and the `en` block.
 - **Imprint and privacy policy** are plain Astro pages in `src/pages/de/` and `src/pages/en/`. Update both languages together.
 - **Contact details** (phone, e-mail, WhatsApp) are defined in [`src/components/ContactBlock.astro`](src/components/ContactBlock.astro). Structured data for search engines (address, phone) is set in [`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro); keep both in sync.
-- **Colors and breakpoints** are configured in [`tailwind.config.mjs`](tailwind.config.mjs).
+- **Colors and breakpoints** are configured in the `@theme` block of [`src/styles/global.css`](src/styles/global.css).
 
 ## Deployment
 
