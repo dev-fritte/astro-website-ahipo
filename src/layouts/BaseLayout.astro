@@ -17,7 +17,7 @@ const {title, description, noindex = false} = Astro.props;
 
 import {SITE_TITLE, SITE_DESCRIPTION} from '@/consts';
 import {ADDRESS, CONTACT} from '@/contact';
-import {useTranslations, LOCALES, getLocalePaths, DEFAULT_LOCALE, type Lang} from '@/i18n';
+import {useTranslations, getLocalePaths, DEFAULT_LOCALE, type Lang} from '@/i18n';
 
 const language = Astro.currentLocale as Lang
 const t = useTranslations(language);

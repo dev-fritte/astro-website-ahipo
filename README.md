@@ -57,6 +57,7 @@ The site is served at <http://localhost:4321>.
 | `yarn dev` | Start the development server with hot reload |
 | `yarn build` | Build the static site into `dist/` |
 | `yarn preview` | Serve the production build locally |
+| `yarn typecheck` | Type-check Astro and TypeScript files (`astro check`) |
 
 ## Project structure
 

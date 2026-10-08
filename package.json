@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "typecheck": "astro check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -19,8 +20,11 @@
     "vanilla-cookieconsent": "^3.1.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@astrojs/ts-plugin": "^1.10.12",
-    "@iconify-json/mdi": "^1.2.3"
+    "@emnapi/runtime": "^1.11.3",
+    "@iconify-json/mdi": "^1.2.3",
+    "typescript": "^6"
   },
   "packageManager": "yarn@1.22.22",
   "engines": {
