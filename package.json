@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "check:external": "node scripts/check-external-resources.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
